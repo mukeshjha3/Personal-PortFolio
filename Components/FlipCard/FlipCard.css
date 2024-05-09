@@ -1,0 +1,71 @@
+.flip-card {
+  background-color: whitesmoke;
+  width: 390px;
+  height: 254px;
+  perspective: 1000px;
+  border-radius: 1rem; /* Round border shape */
+}
+
+.title {
+  font-size: 1.5em;
+  font-weight: bold; /* Make title bold */
+  text-align: center; 
+  padding-top: 50px;
+  margin-bottom: 50px; /* Add margin to create space between the title and the image */
+  color: var(--gray); /* Set title color to gray */
+  font-family: "Kanit", sans-serif;
+}
+
+.description{
+  text-align: center; 
+  margin-bottom: 20px; /* Add margin to create space between the title and the image */
+  color: black; /* Set title color to gray */
+  font-family: "Playfair Display", serif;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  box-shadow: 0 8px 14px 0 rgba(0,0,0,0.2);
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* Center the content horizontally */
+  width: 100%;
+  height: 100%; /* Adjust height to fill the entire card */
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border: 2px solid var(--orange); /* Add border to the front and back */
+  border-radius: 1rem; /* Round border shape */
+}
+
+.flip-card-front {
+  background-color: white; /* Set background color to white */
+  color: black; /* Set text color to black */
+}
+
+.flip-card-back {
+  background-color: white; /* Set background color to white */
+  color: black; /* Set text color to black */
+  transform: rotateY(180deg);
+}
+
+.flip-card-front img {
+  border-bottom-left-radius: 1rem; /* Rounded corner for the bottom left of the image */
+  border-bottom-right-radius: 1rem; /* Rounded corner for the bottom right of the image */
+  max-width: 100%; /* Ensure the image stays within the boundaries of the flip card */
+  max-height: calc(100% - 100px); /* Adjust the height to leave space for the title */
+  object-fit: cover; /* Ensure the image maintains its aspect ratio and covers the container */
+}
